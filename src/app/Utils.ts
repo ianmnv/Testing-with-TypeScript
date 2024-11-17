@@ -1,3 +1,12 @@
+export class ChangeString {
+  changeToUpperCase(arg: string) {
+    if (!arg) {
+      throw new Error("Invalid data type");
+    }
+    return arg.toUpperCase();
+  }
+}
+
 export function changeToUpperCase(str: string) {
   return str.toUpperCase();
 }

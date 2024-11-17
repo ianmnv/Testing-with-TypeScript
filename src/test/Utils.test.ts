@@ -1,15 +1,31 @@
-import { changeToUpperCase, getStringInfo } from "../app/Utils";
+import { ChangeString, changeToUpperCase, getStringInfo } from "../app/Utils";
 
 describe("Utils test", () => {
-  // it("should return string uppercase", () => {
-  //   // Arrange:
-  //   const sut = changeToUpperCase;
-  //   const expected = "ABC";
-  //   // Act:
-  //   const actual = sut("abc");
-  //   // Assert:
-  //   expect(actual).toBe(expected);
-  // });
+  describe.only("Test class ChangeString", () => {
+    let sut: ChangeString;
+
+    beforeEach(() => {
+      sut = new ChangeString();
+      console.log("setup");
+    });
+
+    afterEach(() => {
+      // Clear mocks
+      console.log("teardown");
+    });
+
+    it("Should return string in UpperCase", () => {
+      // Arrange
+      // const sut = new ChangeString();
+
+      // Act
+      const actual = sut.changeToUpperCase("hello world");
+
+      // Assert
+      expect(actual).toBe("HELLO WORLD");
+      console.log("actual test");
+    });
+  });
 
   describe("test changeToUpperCase function with different arguments", () => {
     it.each([
