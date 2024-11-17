@@ -1,16 +1,25 @@
 import { changeToUpperCase, getStringInfo } from "../app/Utils";
 
 describe("Utils test", () => {
-  it("should return string uppercase", () => {
-    // Arrange:
-    const sut = changeToUpperCase;
-    const expected = "ABC";
+  // it("should return string uppercase", () => {
+  //   // Arrange:
+  //   const sut = changeToUpperCase;
+  //   const expected = "ABC";
+  //   // Act:
+  //   const actual = sut("abc");
+  //   // Assert:
+  //   expect(actual).toBe(expected);
+  // });
 
-    // Act:
-    const actual = sut("abc");
-
-    // Assert:
-    expect(actual).toBe(expected);
+  describe("test changeToUpperCase function with different arguments", () => {
+    it.each([
+      { input: "abc", expected: "ABC" },
+      { input: "Valencia", expected: "VALENCIA" },
+      { input: "HosPital", expected: "HOSPITAL" },
+    ])("should return $input to $expected", ({ input, expected }) => {
+      const actual = changeToUpperCase(input);
+      expect(actual).toBe(expected);
+    });
   });
 
   describe("testing getStringInfo function passing hello string", () => {
