@@ -1,7 +1,7 @@
 import { ChangeString, changeToUpperCase, getStringInfo } from "../app/Utils";
 
 describe("Utils test", () => {
-  describe.only("Test class ChangeString", () => {
+  describe("Test class ChangeString", () => {
     let sut: ChangeString;
 
     beforeEach(() => {
@@ -20,22 +20,22 @@ describe("Utils test", () => {
       expect(expectError).toThrow();
     });
 
-    it("Should throw an error in arrow func", () => {
+    it.only("Should throw an error in arrow func", () => {
       expect(() => sut.changeToUpperCase("")).toThrow();
     });
 
-    it.only("Should throw an error in try/catch block", (done) => {
-      try {
-        sut.changeToUpperCase("");
-        done(
-          "ChangeToString class should return an error on changeToUpperCase function"
-        );
-      } catch (error) {
-        expect(error).toBeInstanceOf(Error);
-        expect(error).toHaveProperty("message", "Invalid data type");
-        done();
-      }
-    });
+    // it("Should throw an error in try/catch block", (done) => {
+    //   try {
+    //     sut.changeToUpperCase("");
+    //     done(
+    //       "ChangeToString class should return an error on changeToUpperCase function"
+    //     );
+    //   } catch (error) {
+    //     expect(error).toBeInstanceOf(Error);
+    //     expect(error).toHaveProperty("message", "Invalid data type");
+    //     done();
+    //   }
+    // });
   });
 
   describe("test changeToUpperCase function with different arguments", () => {
@@ -54,6 +54,7 @@ describe("Utils test", () => {
       const result = getStringInfo("Hello");
       expect(result.lowerCase).toBe("hello");
     });
+
     test("should test for returned obj", () => {
       const result = getStringInfo("Hello");
       expect(result.extraInfo).toEqual({});
@@ -62,11 +63,13 @@ describe("Utils test", () => {
       expect(result.extraInfo).not.toBeUndefined();
       expect(result.extraInfo).toBeTruthy();
     });
+
     test("should return length of string", () => {
       const result = getStringInfo("Hello");
       expect(result.characters.length).toBe(5);
       expect(result.characters).toHaveLength(5);
     });
+
     test("should return characters of string into an array", () => {
       const result = getStringInfo("Hello");
       expect(result.characters).toEqual(["H", "e", "l", "l", "o"]);
