@@ -6,24 +6,35 @@ describe("Utils test", () => {
 
     beforeEach(() => {
       sut = new ChangeString();
-      console.log("setup");
-    });
-
-    afterEach(() => {
-      // Clear mocks
-      console.log("teardown");
     });
 
     it("Should return string in UpperCase", () => {
-      // Arrange
-      // const sut = new ChangeString();
-
-      // Act
       const actual = sut.changeToUpperCase("hello world");
-
-      // Assert
       expect(actual).toBe("HELLO WORLD");
-      console.log("actual test");
+    });
+
+    it("Should throw an error in func declaration", () => {
+      function expectError() {
+        const actual = sut.changeToUpperCase("");
+      }
+      expect(expectError).toThrow();
+    });
+
+    it("Should throw an error in arrow func", () => {
+      expect(() => sut.changeToUpperCase("")).toThrow();
+    });
+
+    it.only("Should throw an error in try/catch block", (done) => {
+      try {
+        sut.changeToUpperCase("");
+        done(
+          "ChangeToString class should return an error on changeToUpperCase function"
+        );
+      } catch (error) {
+        expect(error).toBeInstanceOf(Error);
+        expect(error).toHaveProperty("message", "Invalid data type");
+        done();
+      }
     });
   });
 
