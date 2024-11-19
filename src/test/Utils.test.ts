@@ -20,7 +20,7 @@ describe("Utils test", () => {
       expect(expectError).toThrow();
     });
 
-    it.only("Should throw an error in arrow func", () => {
+    it("Should throw an error in arrow func", () => {
       expect(() => sut.changeToUpperCase("")).toThrow();
     });
 
