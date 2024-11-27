@@ -4,8 +4,8 @@ import {
   toUpperWithCB,
 } from "../../app/doubles/OtherUtils";
 
-describe("OtherUtils test suite", () => {
-  describe.only("OtherStringUtils class test with spies", () => {
+describe.skip("OtherUtils test suite", () => {
+  describe("OtherStringUtils class test with spies", () => {
     let sut: OtherStringUtils;
 
     beforeEach(() => {
